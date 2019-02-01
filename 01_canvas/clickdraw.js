@@ -1,32 +1,55 @@
-var canvas = document.getElementById("slate");
-var ctx = canvas.getContext("2d");
-var bound = canvas.getBoundingClientRect();
+//Team MS Paint: Dennis Chen Imad Belkebir
+//SoftDev pd7
+//K #00: I See A Red Door...
+//1/30/19
 
+var canvas = document.getElementById('slate');
+var ctx = canvas.getContext('2d');
+canvas.addEventListener('click',makeShape);
+var shape = document.getElementById('rect');
+state = true;
+//changes the state from rectangle to dot or vice versa
+shape.addEventListener('click',function(){
+  state = !state
+});
+
+function makeShape(e) {
+  /*
+    offsetX and offsetY provides the offset in the X or Y coordinate
+    of the mouse pointer between that event(canvas in this case)
+    and the padding edge of the target node
+  */
+  var x = e.offsetX;
+  var y = e.offsetY;
+  if (state){
+    ctx.fillStyle = "#af33f2";
+    ctx.fillRect(x,y,70,85);
+  }
+  else{
+    //beginPath() starts a new path so that the dots on the canvas don't become connected
+    ctx.fillStyle = "#18f0f0";
+    ctx.beginPath();
+    ctx.arc(x , y, 50, 0, 2 * Math.PI);
+    ctx.fill()
+  }
+};
 var clear = document.getElementById("clear");
-var toggle = document.getElementById("toggle");
-
-var mode = true;
-
-canvas.addEventListener('click', function(e){
-    if(mode){
-	ctx.fillStyle = "#18f0f0";
-	ctx.beginPath();
-	ctx.ellipse(e.offsetX, e.offsetY, 50, 50, 0, 0, 2 * Math.PI);
-	ctx.fill();
-    }else{
-	ctx.fillStyle = "#af33f2";
-	ctx.fillRect(e.offsetX, e.offsetY, 80, 80);
-    }
-});
-
-clear.addEventListener('click', function(){
+function clearCanvas(e){
+  var blank = document.createElement('canvas');
+  blank.width = canvas.width;
+  blank.height = canvas.height;
+  warning = document.getElementById('warning');
+  if(canvas.toDataURL() == blank.toDataURL()){
+    /*
+    tells the user that if the event isn't handled correctly, the default action should
+    not be done. in this case, the clear function isn't activated
+    */
+    e.preventDefault();
+    warning.innerHTML = "Can't clear a blank canvas";
+  }
+  else{
     ctx.clearRect(0,0,canvas.width,canvas.height);
-});
-
-toggle.addEventListener('click', function(){
-    if(mode){
-	mode = false;
-    }else{
-	mode = true;
-    }
-});
+    warning.innerHTML = "";
+  }
+}
+clear.addEventListener('click',clearCanvas);
