@@ -1,6 +1,6 @@
 //Team MS Paint: Dennis Chen Imad Belkebir
 //SoftDev pd7
-//K #00: I See A Red Door...
+//K #01: ...and I want to Paint it Better
 //1/30/19
 
 var canvas = document.getElementById('slate');
