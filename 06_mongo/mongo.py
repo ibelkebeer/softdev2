@@ -16,3 +16,8 @@ def get_zip_grade(zip, g):
 
 def get_zip_score(zip, s):
     return collection.find({'address.zipcode': zip, 'grades.score': {'$lt': s}})
+
+def get_cuisine_score(type, s):
+    return collection.find({'cuisine': type, 'grades.score': {'$gte': s}})
+
+print(list(get_cuisine_score("Chinese", 8)))
