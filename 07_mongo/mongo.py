@@ -14,3 +14,4 @@ db = connection.YaThatWasABanana
 collection = db.pkmn
 
 pokemon = list(collection.find())
+print(pokemon)
