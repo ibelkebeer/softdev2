@@ -13,4 +13,4 @@ connection = pymongo.MongoClient(SERVER_ADDR)
 db = connection.YaThatWasABanana
 collection = db.pkmn
 
-print(collection.find({"pokemon": "Eevee"})['pokemon'][0])
+print(list(collection.find({"pokemon": "Eevee"}))[0])
