@@ -15,6 +15,6 @@ collection = db.pkmn
 
 pokemon = list(collection.find())[0]['pokemon']
 names = {}
-for pkmn in pkoemon:
+for pkmn in pokemon:
     names[pkmn[name]] = pkmn[id]
 print(names[Eevee])
