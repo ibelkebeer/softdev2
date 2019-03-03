@@ -13,5 +13,5 @@ connection = pymongo.MongoClient(SERVER_ADDR)
 db = connection.YaThatWasABanana
 collection = db.pkmn
 
-pokemon = list(collection.find({'num': '003'}))
+pokemon = list(collection.find({'pokemon.num': '003'}))
 print(pokemon)
