@@ -13,5 +13,8 @@ connection = pymongo.MongoClient(SERVER_ADDR)
 db = connection.YaThatWasABanana
 collection = db.pkmn
 
-pokemon = list(collection.find())
-print(pokemon[0]['pokemon'][0])
+pokemon = list(collection.find())[0]['pokemon']
+names = {}
+for pkmn in pkoemon:
+    names[pkmn[name]] = pkmn[id]
+print(names[Eevee])
