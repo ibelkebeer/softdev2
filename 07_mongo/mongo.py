@@ -1,4 +1,8 @@
-#Team YaThatWasABanana --
+#Team YaThatWasABanana -- Dennis Chen, Imad Belkebir
+#SoftDev2 pd7
+#K07 -- Import/Export Bank
+#2019-03-01
+
 import pymongo
 import os
 
@@ -9,4 +13,4 @@ connection = pymongo.MongoClient(SERVER_ADDR)
 db = connection.YaThatWasABanana
 collection = db.pkmn
 
-print(list(collection.find({"pokemon.id": 1})))
+print(list(collection.find({"pokemon.name": "Eevee"})))
