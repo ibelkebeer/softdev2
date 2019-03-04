@@ -14,5 +14,7 @@ db = connection.YaThatWasABanana
 collection = db.pkmn
 
 pokemon = list(collection.find())[0]['pokemon']
+names = []
 for pkmn in pokemon:
-    print(pkmn['name'])
+    names.append(pkmn['name'])
+print(names)
