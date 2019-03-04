@@ -14,8 +14,8 @@ connection = pymongo.MongoClient(SERVER_ADDR)
 db = connection.YaThatWasABanana
 collection = db.pkmn
 
-pokemon = dumps(list(collection.find())[0]['pokemon'])
+pokemon = list(collection.find())[0]['pokemon']
 names = []
 for pkmn in pokemon:
-    names.append(pkmn['name'].encode("ascii"))
+    names.append(pkmn['name'].encode('ascii','ignore'))
 print(names)
