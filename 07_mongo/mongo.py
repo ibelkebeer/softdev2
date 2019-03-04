@@ -15,4 +15,4 @@ collection = db.pkmn
 
 pokemon = list(collection.find())[0]['pokemon']
 for pkmn in pokemon:
-    print(pkmn)
+    print(pkmn['name'])
