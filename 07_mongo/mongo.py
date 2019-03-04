@@ -14,7 +14,5 @@ db = connection.YaThatWasABanana
 collection = db.pkmn
 
 pokemon = list(collection.find())[0]['pokemon']
-names = {}
 for pkmn in pokemon:
-    names[pkmn[name].encode('ascii')] = pkmn[id].encode('ascii')
-print(names[Eevee])
+    print(pkmn[name])
