@@ -16,6 +16,14 @@ collection = db.pkmn
 
 pokemon = list(collection.find())[0]['pokemon']
 names = {}
+ids = {}
 for pkmn in pokemon:
-    names[pkmn['name'].encode('ascii','ignore')] = pkmn['id']
-print(names)
+    name = pkmn['name'].encode('ascii','ignore')
+    names[name] = pkmn['id']
+    ids[pkmn['id']] = name
+
+def get_id_by_name(name):
+    return names[name]
+
+def get_name_by_id(id):
+    return ids[id]
