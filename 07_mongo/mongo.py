@@ -5,6 +5,7 @@
 
 import pymongo
 import os
+import json
 
 os.system("sudo mv pkmn.json ../../data/db")
 os.system("mongoimport --db YaThatWasABanana --collection pkmn --drop --file ~/data/db/pkmn.json")
@@ -13,7 +14,7 @@ connection = pymongo.MongoClient(SERVER_ADDR)
 db = connection.YaThatWasABanana
 collection = db.pkmn
 
-pokemon = list(collection.find())[0]['pokemon']
+pokemon = dumps(list(collection.find())[0]['pokemon'])
 names = []
 for pkmn in pokemon:
     names.append(pkmn['name'].encode("ascii"))
