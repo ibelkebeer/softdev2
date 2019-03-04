@@ -16,5 +16,5 @@ collection = db.pkmn
 pokemon = list(collection.find())[0]['pokemon']
 names = []
 for pkmn in pokemon:
-    names.append(pkmn['name'])
+    names.append(pkmn['name'].encode("ascii"))
 print(names)
