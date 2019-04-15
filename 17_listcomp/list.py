@@ -1,12 +1,12 @@
 # 1
 def loopy1():
     list = []
-    for i in range(4):
-        list.append(str(i*22))
+    for i in range(5):
+        list.append(str(i*2) + str(i*2))
     return list
 
 def compy1():
-    return [str(i*22) for i in range(5)]
+    return [str(i*2) + str(i*2)  for i in range(5)]
 
 # 2
 def loopy2():
