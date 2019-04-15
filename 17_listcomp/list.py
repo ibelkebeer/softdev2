@@ -68,7 +68,7 @@ def loopy7(matrix):
     for i in range(len(matrix[0])):
         row = []
         for j in range(len(matrix)):
-            row.append(matrix[j][i]) # atom
+            row.append(matrix[j][i])
         list.append(row)
     return list
 
