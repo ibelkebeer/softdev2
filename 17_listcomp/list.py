@@ -4,7 +4,7 @@ def loopy1():
     for i in range(4):
         list.append(str(i*22))
     return list
-       
+
 def compy1():
     return [str(i*22) for i in range(5)]
 
@@ -21,10 +21,13 @@ def compy2():
 # 3
 def loopy3():
     list = []
+    for i in range(3):
+        for j in range(3):
+            list.append(i * j)
     return list
 
 def compy3():
-    return
+    return [i * j for i in range(3) for j in range(3)]
 
 # 6
 def loopy6(num):
