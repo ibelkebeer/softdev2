@@ -24,9 +24,20 @@ def group_freq(s):
     if len(s) == 1:
         return word_freq(s)
     temp = [reduce(lambda x,y: x + ' ' + y, words[i:i + len(s)]) for i in range(len(words) - len(s) + 1)]
-    print(temp)
     return sum([1 for x in temp if x == phrase.lower()])
 
-print(group_freq("one leg"))
-
 #Find most frequently occuring word
+def most_freq():
+    freq = {}
+    for x in words:
+        if x in freq:
+            freq[x] += 1
+        else:
+            freq[x] = 1
+    max = 0
+    s = ""
+    for x in freq.keys():
+        if freq[x] > max:
+            max = freq[x]
+            s = x
+    return s
