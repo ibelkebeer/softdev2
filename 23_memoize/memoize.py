@@ -1,7 +1,7 @@
 def make(f):
     m = {}
     def inner(x):
-        if x in m.keys():
+        if x in m:
             return m[x]
         m[x] = f(x)
         return m[x]
